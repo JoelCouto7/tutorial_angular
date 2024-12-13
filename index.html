@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tutorial Angular</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<style>
+			.indice{
+				margin-left: 8px;
+				background-color: lightgreen;
+				text-align: center;
+			}
+			.seccion{
+				margin: 8px;
+				background-color: lightgreen;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="w3-sidebar w3-collapse" id="sidenav" data-scrolled="true" style="display: block;">
+			<div id="leftmenuinner">
+				<div id="leftmenuinnerinner">
+					<!--  <a href='javascript:void(0)' onclick='close_menu()' class='w3-button w3-hide-large w3-large w3-display-topright' style='right:16px;padding:3px 12px;font-weight:bold;'>&times;</a>-->
+					<h2 class="indice" class="left">Tutorial</h2>
+					<p class="indice"><a target="_top" href="#">HOME</a></p>
+					<p class="indice"><a target="_top" href="#intro">Intro</a></p>
+					<p class="indice"><a target="_top" href="#expressions">Expressions</a></p>
+					<p class="indice"><a target="_top" href="#modules">Modules</a></p>
+					<p class="indice"><a target="_top" href="#directives">Directives</a></p>
+					<p class="indice"><a target="_top" href="#model">Model</a></p>
+					<p class="indice"><a target="_top" href="#controllers">Controllers</a></p>
+					<p class="indice"><a target="_top" href="#scopes">Scopes</a></p>
+					<p class="indice"><a target="_top" href="#filters">Filters</a></p>
+					<p class="indice"><a target="_top" href="#services">Services</a></p>
+					<p class="indice"><a target="_top" href="#tables">Tables</a></p>
+					<p class="indice"><a target="_top" href="#routing">Routing</a></p>
+					<p class="indice"><a target="_top" href="#application">Application</a></p>
+				</div>
+			</div>
+		</div>
+		
+		<div ng-app="myShoppingList2" id="contenido_tutorial" style="position: absolute; left: 208px; width: -webkit-fill-available;">
+			<h2 class="seccion" id="intro">Tutorial Angular</h2>
+			<h3>¿Qué es AngularJS?</h3>
+			<p>AngularJS es un framework de JavaScript de código abierto, mantenido por Google.</p>
+			<p>Esencialmente hace que el desarrollo y las pruebas de aplicaciones web sean más fáciles.</p>
+			<p>Para integrarlo en tu web sólo necesitas conocer su sintaxis y enlazarlo al código HTML de la siguiente forma.</p>
+			<div class="w3-example">
+				<div class="w3-code notranslate htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="attributecolor" style="color:red">
+				src<span class="attributevaluecolor" style="color:mediumblue">="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+			</div>
+			<p>AngularJS no requiere ningún tipo de instalción, debido a que se enlaza a la web mediante el código anterior.</p>
+
+			<h3>Sobre éste tutorial</h3>
+			<p>En éste tutorial de AngularJS se van a explicar diferentes funcionalidades básicas del lenguaje y cómo expande las funcionalidades de HTML, al final de cada explicación hay un breve código de ejemplo.</p>
+			<p>Cada sección de éste tutorial de AngularJS es básicamente un extracto del tutorial hecho por <a href="https://www.w3schools.com/angular/default.asp">W3Schools</a>.</p>
+			<p>Al final del tutorial hay un ejemplo de aplicación completa hecha con AngularJS que puede ser probada.</p>
+
+			<h3>Primeros pasos</h3>
+			<p>AngularJS expande las funcionalidades de HTML con las directivas ng:</p>
+			<p>La directiva ng-app define una aplicación AngularJS.</p>
+			<p>La directiva ng-model vincula el valor de los controles HTML (input, select, textarea) a los datos de la aplicación.</p>
+			<p>La directiva ng-bind vincula los datos de la aplicación a la vista HTML.</p>
+
+			<div class="w3-example">
+				<h3>AngularJS Ejemplo</h3>
+				<div class="w3-code notranslate htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> html</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="attributecolor" style="color:red">
+				src<span class="attributevaluecolor" style="color:mediumblue">="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">=""</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				&nbsp;    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Name: <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="text"</span> ng-model<span class="attributevaluecolor" style="color:mediumblue">="name"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				&nbsp;    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="attributecolor" style="color:red"> ng-bind<span class="attributevaluecolor" style="color:mediumblue">="name"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				 </div>
+			</div>
+			<div id=ejemplo>
+				<p>El código anterior genera el siguiente resultado:</p>
+				<div ng-app="">
+					<p>Name: <input type="text" ng-model="name"></p>
+					<p ng-bind="name"></p>
+				</div>
+				<hr/>
+				<p>Explicación:</p>
+				<p>AngularJS se inicia automáticamente cuando se carga la página web.</p>
+				<p>La directiva ng-app le dice a AngularJS que el elemento "div" es el "propietario" de una aplicación AngularJS.</p>
+				<p>La directiva ng-model vincula el valor del campo de entrada al nombre de la variable de la aplicación.</p>
+				<p>La directiva ng-bind vincula el contenido del elemento "p" al nombre de la variable de la aplicación.</p>
+			</div>
+			
+			<h2 class="seccion" id="expressions">Expressions</h2>
+			<p class="intro">AngularJS vincula datos a HTML usando <strong>Expressions</strong>.</p>
+
+			<hr>
+			<p>Las expresiones de AngularJS se pueden escribir entre llaves dobles: <code class="w3-codespan">{{ <em>expression</em> }}</code>.</p>
+			<p>Las expresiones de AngularJS también se pueden escribir dentro de una directiva: <code class="w3-codespan">ng-bind="<em>expression</em>"</code>.</p>
+			<p>AngularJS resolverá la expresión y devolverá el resultado exactamente donde está escrita la expresión.</p>
+			<p>Las expresiones de AngularJS son muy similares a las expresiones de JavaScript: pueden contener literales, operadores y variables.</p>
+
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+			<div class="w3-code notranslate htmlHigh">
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> html</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">=""</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			&nbsp;    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>My first expression: <span class="angularstatementcolor" style="color:red">{'{ 5 + 5 }'}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			 </div>
+			</div>
+						
+			
+			<h2 class="seccion" id="modules">Modules</h2>
+			<p class="intro">Un módulo AngularJS define una aplicación.</p>
+			<p class="intro">El módulo es un contenedor para las diferentes partes de una aplicación.</p>
+			<p class="intro">El módulo es un contenedor para los controladores de la aplicación.</p>
+			<p class="intro">Los controladores siempre pertenecen a un módulo.</p>
+
+			<hr>
+			<h2>Creando un Módulo</h2>
+
+			<p>Se crea un módulo utilizando la función <code class="w3-codespan">angular.module</code> de AngularJS</p>
+
+			<div class="w3-example">
+			<div class="w3-code notranslate htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myApp"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>...<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br><span class="jsnumbercolor" style="color:red">
+
+			</span>    <br><span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">"myApp"</span>, []);<span class="jsnumbercolor" style="color:red">
+			</span>    <br><br></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+			</div>
+
+			
+			<h2 class="seccion" id="directives">Directives</h2>
+			<p class="intro">AngularJS te permite ampliar HTML con nuevos atributos llamados <strong>Directives</strong>.</p>
+			<p class="intro">AngularJS tiene un conjunto de directivas integradas que ofrecen funcionalidad a sus aplicaciones.</p>
+			<p class="intro">AngularJS también te permite definir tus propias directivas.</p>
+			<hr>
+			<h2>AngularJS Directives</h2>
+			<p>Las directivas AngularJS son atributos HTML extendidos con el prefijo <code class="w3-codespan">ng-</code>.</p>
+			<p>La directiva <code class="w3-codespan">ng-app</code> inicializa una aplicación AngularJS.</p>
+			<p>La directiva <code class="w3-codespan">ng-init</code> inicializa los datos de la aplicación.</p>
+			<p>La directiva <code class="w3-codespan">ng-model</code> vincula el valor de los controles HTML (input, select, textarea) a los datos de la aplicación.</p>
+
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+			<div class="w3-code notranslate htmlHigh">
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">=""</span> ng-init<span class="attributevaluecolor" style="color:mediumblue">="firstName='John'"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Name: <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="text"</span> ng-model<span class="attributevaluecolor" style="color:mediumblue">="firstName"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>You wrote: <span class="angularstatementcolor" style="color:red">{{ firstName }}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+			 </div>
+			</div>
+
+			
+			<h2 class="seccion" id="model">Model</h2>
+			<p class="intro">La directiva ng-model vincula el valor de los controles HTML (input, select, textarea) a los datos de la aplicación.</p>
+			<hr>
+			<h2>La Directiva ng-model</h2>
+			<p>Con la directiva <code class="w3-codespan">ng-model</code> puedes vincular el valor de un campo de entrada a una variable creada en AngularJS.</p>
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+			<div class="w3-code notranslate htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myApp"</span> ng-controller<span class="attributevaluecolor" style="color:mediumblue">="myCtrl"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; Name: 
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> ng-model<span class="attributevaluecolor" style="color:mediumblue">="name"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br><span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">'myApp'</span>, []);<br><span class="jsnumbercolor" style="color:red">
+			</span>    app.<span class="jspropertycolor" style="color:black">controller</span>(<span class="jsstringcolor" style="color:brown">'myCtrl'</span>, <span class="jskeywordcolor" style="color:mediumblue">function</span>($scope) {<br>&nbsp;&nbsp;$scope.<span class="jspropertycolor" style="color:black">name</span> <span class="jsnumbercolor" style="color:red">
+			</span>    = <span class="jsstringcolor" style="color:brown">"John Doe"</span>;<br>});<br></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+			</div>
+			
+			<h2 class="seccion" id="controllers">Controllers</h2>
+			<p class="intro">Los controladores de AngularJS <strong>controlan los datos</strong> de las aplicaciones en AngularJS.</p>
+			<p class="intro">Los controladores de AngularJS son <strong>Objetos JavaScript</strong> normales.</p>
+			<hr>
+			<h2>AngularJS Controllers</h2>
+			<p>Las aplicaciones AngularJS están controladas por controladores.</p>
+			<p>La directiva <strong>ng-controller</strong> define el controlador de la aplicación.</p>
+			<p>Un controlador es un <strong>Objeto de JavaScript</strong>, creado por un <strong>constructor de objetos</strong> en JavaScript .</p>
+			<div class="w3-example">
+			 <h3>AngularJS Ejemplo</h3>
+			<div class="w3-code notranslate htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myApp"</span> ng-controller<span class="attributevaluecolor" style="color:mediumblue">="myCtrl"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<br>First Name: <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="text"</span> ng-model<span class="attributevaluecolor" style="color:mediumblue">="firstName"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>br<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				Last Name: <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="text"</span> ng-model<span class="attributevaluecolor" style="color:mediumblue">="lastName"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>br<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>br<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				Full Name: <span class="angularstatementcolor" style="color:red">{{firstName + " " + lastName}}</span><br>
+				<br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br><span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">'myApp'</span>, <span class="jsnumbercolor" style="color:red">
+			</span>    []);<br>app.<span class="jspropertycolor" style="color:black">controller</span>(<span class="jsstringcolor" style="color:brown">'myCtrl'</span>, <span class="jskeywordcolor" style="color:mediumblue">function</span>($scope) {<br>&nbsp; $scope.<span class="jspropertycolor" style="color:black">firstName</span> <span class="jsnumbercolor" style="color:red">
+			</span>    = <span class="jsstringcolor" style="color:brown">"John"</span>;<br>&nbsp;&nbsp;$scope.<span class="jspropertycolor" style="color:black">lastName</span> = <span class="jsstringcolor" style="color:brown">"Doe"</span>;<br>});<br></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+			 </div>
+			</div>
+
+
+			<h2 class="seccion" id="scopes">Scopes</h2>
+			<p class="intro">El scope es la parte de enlace entre el HTML (vista) y el JavaScript (controlador).</p>
+			<p class="intro">El scope es un objeto con las propiedades y métodos disponibles.</p>
+			<p class="intro">El scope está disponible tanto para la vista como para el controlador.</p>
+			<hr>
+			<h2>¿Cómo usar el Scope?</h2>
+			<p>Cuando creas un controlador en AngularJS, la pasas el objeto <code class="w3-codespan">$scope</code> como un argumento:</p>
+
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+				<p>Las propiedades creadas en el controlador se pueden consultar en la vista:</p>
+			<div class="w3-code notranslate">
+			<div class="htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myApp"</span> ng-controller<span class="attributevaluecolor" style="color:mediumblue">="myCtrl"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h1<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="angularstatementcolor" style="color:red">{{carname}}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h1<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			 </div>
+			<div class="jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+			</span>    <span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">'myApp'</span>, <span class="jsnumbercolor" style="color:red">
+			</span>    []);<br><br>app.<span class="jspropertycolor" style="color:black">controller</span>(<span class="jsstringcolor" style="color:brown">'myCtrl'</span>, <span class="jskeywordcolor" style="color:mediumblue">function</span>($scope) {<br>&nbsp;&nbsp;$scope.<span class="jspropertycolor" style="color:black">carname</span> <span class="jsnumbercolor" style="color:red">
+			</span>    = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>});<br><span class="jsnumbercolor" style="color:red">
+			</span> </span></div>
+			<div class="htmlHigh"><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div></div>
+			</div>
+
+
+			<h2 class="seccion" id="filters">Filters</h2>
+			<p class="intro">Se pueden agregar filtros en AngularJS para formatear datos.</p>
+
+			<hr>
+			<h2>AngularJS Filters</h2>
+			<p>AngularJS proporciona filtros para transformar datos:</p>
+
+			<ul>
+				<li><code class="w3-codespan">currency</code> Formatea un número a un formato de moneda.</li>
+				<li><code class="w3-codespan">date</code> Formatea una fecha a un formato específico.</li>
+				<li><code class="w3-codespan">filter</code> Selecciona un subconjunto de elementos de una matriz.</li>
+				<li><code class="w3-codespan">json</code> Formatea un objeto a una cadena JSON.</li>
+				<li><code class="w3-codespan">limitTo</code> Limita una matriz/cadena a un número específico de elementos/caracteres.</li>
+				<li><code class="w3-codespan">lowercase</code> Formatea una cadena en minúsculas.</li>
+				<li><code class="w3-codespan">number</code> Formatea un número en una cadena.</li>
+				<li><code class="w3-codespan">orderBy</code> Ordena una matriz mediante una expresión.</li>
+				<li><code class="w3-codespan">uppercase</code> Formatea una cadena en mayúsculas.</li>
+			</ul>
+
+			<hr>
+			<h2>Agregar filtros a las expresiones</h2>
+			<p>Se pueden agregar filtros a las expresiones utilizando el carácter de barra vertical <code class="w3-codespan">|</code>, seguido de un filtro.</p>
+
+			<p>El filtro <code class="w3-codespan">uppercase</code> formatea cadenas en mayúsculas:</p>
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+			<div class="w3-code notranslate htmlHigh">
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myApp"</span> ng-controller<span class="attributevaluecolor" style="color:mediumblue">="personCtrl"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>The name is <span class="angularstatementcolor" style="color:red">{'{ lastName | uppercase }'}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+			 </div>
+			</div>
+
+			
+			<h2 class="seccion" id="services">Services</h2>
+			<p class="intro">En AngularJS puedes crear tu propio servicio o utilizar uno de los muchos servicios integrados.</p>
+			<hr>
+
+			<h2>¿Qué es un Servicio?</h2>
+
+			<p>En AngularJS, un servicio es una función u objeto que está disponible y limitado a su aplicación AngularJS.</p>
+			<p>AngularJS tiene alrededor de 30 servicios integrados. Uno de ellos es el servicio <code class="w3-codespan">$location</code>.</p>
+			<p>El servicio <code class="w3-codespan">$location</code> tiene métodos que devuelven información sobre la ubicación de la página web actual.:</p>
+
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+			<p>Use the <code class="w3-codespan">$location</code> service in a controller:</p>
+			<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+			</span>    <span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">'myApp'</span>, []);<br>app.<span class="jspropertycolor" style="color:black">controller</span>(<span class="jsstringcolor" style="color:brown">'customersCtrl'</span>, <span class="jsnumbercolor" style="color:red">
+			</span>    <span class="jskeywordcolor" style="color:mediumblue">function</span>($scope, $location) {<br>&nbsp;&nbsp;&nbsp; $scope.<span class="jspropertycolor" style="color:black">myUrl</span> = $location.<span class="jspropertycolor" style="color:black">absUrl</span>();<br><span class="jsnumbercolor" style="color:red">
+			</span>    }); </span></div>
+
+			</div>
+
+			<h2 class="seccion" id="tables">Tables</h2>
+			<p class="intro">La directiva ng-repeat es perfecta para mostrar tablas.</p>
+
+			<hr>
+			<h2>Visualización de datos en una tabla</h2>
+			<p>Visualizar tablas con angular es muy sencillo:</p>
+			<div class="w3-example">
+			<h3>AngularJS Ejemplo</h3>
+			<div class="w3-code notranslate htmlHigh">
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myApp"</span> ng-controller<span class="attributevaluecolor" style="color:mediumblue">="customersCtrl"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span> <br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>table<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>tr<span class="attributecolor" style="color:red"> ng-repeat<span class="attributevaluecolor" style="color:mediumblue">="x in names"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>td<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="angularstatementcolor" style="color:red">{'{ x.Name }'}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/td<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;&nbsp; 
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>td<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="angularstatementcolor" style="color:red">{'{ x.Country }'}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/td<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/tr<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/table<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+			 <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br><span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">'myApp'</span>, []);<br>app.<span class="jspropertycolor" style="color:black">controller</span>(<span class="jsstringcolor" style="color:brown">'customersCtrl'</span>, <span class="jsnumbercolor" style="color:red">
+			</span> <span class="jskeywordcolor" style="color:mediumblue">function</span>($scope, $http) {<br>&nbsp;&nbsp;$http.<span class="jspropertycolor" style="color:black">get</span>(<span class="jsstringcolor" style="color:brown">"customers.php"</span>)<br><span class="jsnumbercolor" style="color:red">
+			</span> &nbsp;&nbsp;.<span class="jskeywordcolor" style="color:mediumblue">then</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span> (response) {$scope.<span class="jspropertycolor" style="color:black">names</span> = response.<span class="jspropertycolor" style="color:black">data</span>.<span class="jspropertycolor" style="color:black">records</span>;});<br>});<br></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+			</div>
+			<p>Resultado del código:</p>
+			<table>
+			  <tbody><!-- ngRepeat: x in names --><tr>
+				<td class="ng-binding">Alfreds Futterkiste</td>
+				<td class="ng-binding">Germany</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Ana Trujillo Emparedados y helados</td>
+				<td class="ng-binding">Mexico</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Antonio Moreno Taquería</td>
+				<td class="ng-binding">Mexico</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Around the Horn</td>
+				<td class="ng-binding">UK</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">B's Beverages</td>
+				<td class="ng-binding">UK</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Berglunds snabbköp</td>
+				<td class="ng-binding">Sweden</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Blauer See Delikatessen</td>
+				<td class="ng-binding">Germany</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Blondel père et fils</td>
+				<td class="ng-binding">France</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Bólido Comidas preparadas</td>
+				<td class="ng-binding">Spain</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Bon app'</td>
+				<td class="ng-binding">France</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Bottom-Dollar Marketse</td>
+				<td class="ng-binding">Canada</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Cactus Comidas para llevar</td>
+				<td class="ng-binding">Argentina</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Centro comercial Moctezuma</td>
+				<td class="ng-binding">Mexico</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Chop-suey Chinese</td>
+				<td class="ng-binding">Switzerland</td>
+			  </tr><!-- end ngRepeat: x in names --><tr>
+				<td class="ng-binding">Comércio Mineiro</td>
+				<td class="ng-binding">Brazil</td>
+			  </tr><!-- end ngRepeat: x in names -->
+			</tbody>
+			</table>
+			<hr/>
+
+			<h2 class="seccion" id="routing">Routing</h2>
+			<p class="intro">El módulo <code class="w3-codespan">ngRoute</code> ayuda a que su aplicación se convierta en una aplicación de página única.</p>
+			<hr>
+			<h2>¿Qué es el enrutamiento en AngularJS?</h2>
+			<p>Si desea navegar a diferentes páginas en su aplicación, pero también desea que la aplicación sea una SPA (Aplicación de página única), sin recarga de página, puede usar el módulo <code class="w3-codespan">ngRoute</code>.</p>
+			<p>El módulo <code class="w3-codespan">ngRoute</code> <em>enruta</em> su aplicación a diferentes páginas sin tener que recargar toda la aplicación.</p>
+			<div class="w3-example">
+			<h3>Ejemplo:</h3>
+			<p>Navigate to "red.htm", "green.htm", and "blue.htm":</p>
+			<div class="w3-code notranslate htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myApp"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="#/!"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Main<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="#!red"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Red<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="#!green"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Green<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="#!blue"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Blue<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-view</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br><span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">"myApp"</span>, [<span class="jsstringcolor" style="color:brown">"ngRoute"</span>]);<br><span class="jsnumbercolor" style="color:red">
+			</span>    app.<span class="jspropertycolor" style="color:black">config</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span>($routeProvider) {<br>&nbsp; $routeProvider<br>&nbsp; .<span class="jspropertycolor" style="color:black">when</span>(<span class="jsstringcolor" style="color:brown">"/"</span>, {<br>&nbsp;&nbsp;&nbsp; templateUrl : <span class="jsstringcolor" style="color:brown">"main.htm"</span><br>&nbsp; })<br><span class="jsnumbercolor" style="color:red">
+			</span>    &nbsp; .<span class="jspropertycolor" style="color:black">when</span>(<span class="jsstringcolor" style="color:brown">"/red"</span>, {<br>&nbsp;&nbsp;&nbsp; templateUrl : <span class="jsstringcolor" style="color:brown">"red.htm"</span><br>&nbsp; })<br><span class="jsnumbercolor" style="color:red">
+			</span>    &nbsp; .<span class="jspropertycolor" style="color:black">when</span>(<span class="jsstringcolor" style="color:brown">"/green"</span>, {<br>&nbsp;&nbsp;&nbsp; templateUrl : <span class="jsstringcolor" style="color:brown">"green.htm"</span><br>&nbsp;  <span class="jsnumbercolor" style="color:red">
+			</span>    })<br>&nbsp; .<span class="jspropertycolor" style="color:black">when</span>(<span class="jsstringcolor" style="color:brown">"/blue"</span>, {<br>&nbsp;&nbsp;&nbsp; templateUrl : <span class="jsstringcolor" style="color:brown">"blue.htm"</span><br>&nbsp;  <span class="jsnumbercolor" style="color:red">
+			</span>    });<br>});<br></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br> </div>
+			</div>
+			
+			
+			<h2 class="seccion" id="application">Application</h2>
+			<p class="intro">Es hora de crear una verdadera aplicación AngularJS.</p>
+
+			<hr>
+			<h2>Crear una lista de compras</h2>
+			<p>Utilicemos algunas de las funciones de AngularJS para crear una lista de compras, en la que se pueden agregar o quitar artículos:</p>
+
+
+			<div ng-app="myShoppingList2" ng-cloak ng-controller="myCtrl2" class="w3-card-2" style="max-width:400px;">
+			  <header class="w3-container w3-light-grey w3-padding-16">
+				<h3>My Shopping List</h3>
+			  </header>
+			  <ul class="w3-ul">
+				<li ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class="w3-right w3-margin-right">×</span></li>
+			  </ul>
+			  <div class="w3-container w3-light-grey w3-padding-16">
+				<div class="w3-row w3-margin-top">
+				  <div class="w3-col s10">
+					<input placeholder="Add shopping items here" ng-model="addMe" class="w3-input w3-border w3-padding ng-pristine ng-untouched ng-valid ng-empty">
+				  </div>
+				  <div class="w3-col s2">
+					<button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
+				  </div>
+				</div>
+				<p class="w3-text-red ng-binding"></p>
+			  </div>
+			</div>
+			<br>
+
+			<script>
+			var app = angular.module("myShoppingList2", []); 
+			app.controller("myCtrl2", function($scope) {
+				$scope.products = ["Milk", "Bread", "Cheese"];
+				$scope.addItem = function () {
+					$scope.errortext = "";
+					if (!$scope.addMe) {return;}
+					if ($scope.products.indexOf($scope.addMe) == -1) {
+						$scope.products.push($scope.addMe);
+					} else {
+						$scope.errortext = "The item is already in your shopping list.";
+					}
+				}
+				$scope.removeItem = function (x) {
+					$scope.errortext = "";    
+					$scope.products.splice(x, 1);
+				}
+			});
+			</script>
+
+
+			<hr>
+			<h2>Aplicación Explicada</h2>
+			<h3>Paso 1. Comenzando:</h3>
+			<p>Comience por crear una aplicación llamada <code class="w3-codespan">myShoppingList</code> y agréguele un controlador llamado <code class="w3-codespan">myCtrl</code>.</p>
+			<p>El controlador agrega una matriz llamada <code class="w3-codespan">products</code> al <code class="w3-codespan">$scope</code> actual.</p>
+			<p>En HTML, usamos la directiva <code class="w3-codespan">ng-repeat</code> para mostrar una lista usando los elementos de la matriz.</p>
+			<div class="w3-example">
+				<h3>Ejemplo</h3>
+				<p>Hasta ahora hemos creado una lista HTML basada en los elementos de una matriz:</p>
+				<div class="w3-code notranslate">
+					<div class="htmlHigh">
+						<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+					 </div>
+					<div class="jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+					</span>    <span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">"myShoppingList"</span>, []); <br><span class="jsnumbercolor" style="color:red">
+					</span>    app.<span class="jspropertycolor" style="color:black">controller</span>(<span class="jsstringcolor" style="color:brown">"myCtrl"</span>, <span class="jskeywordcolor" style="color:mediumblue">function</span>($scope) {<br>&nbsp;&nbsp;$scope.<span class="jspropertycolor" style="color:black">products</span> <span class="jsnumbercolor" style="color:red">
+					</span>    = [<span class="jsstringcolor" style="color:brown">"Milk"</span>, <span class="jsstringcolor" style="color:brown">"Bread"</span>, <span class="jsstringcolor" style="color:brown">"Cheese"</span>];<br>}); </span></div>
+					<div class="htmlHigh">
+
+					<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myShoppingList"</span> 
+						ng-controller<span class="attributevaluecolor" style="color:mediumblue">="myCtrl"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>ul<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;&nbsp; 
+						<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>li<span class="attributecolor" style="color:red"> ng-repeat<span class="attributevaluecolor" style="color:mediumblue">="x in products"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="angularstatementcolor" style="color:red">{{x}}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/li<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/ul<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+						<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+					 </div>    
+				</div>
+			</div>
+			<hr>
+
+			<h3>Paso 2. Agregar elementos:</h3>
+			<p>En el HTML, agregue un campo de texto y vincúlelo a la aplicación con la directiva <code class="w3-codespan">ng-model</code>.</p>
+			<p>En el controlador, cree una función llamada <code class="w3-codespan">addItem</code> y use el valor del campo de entrada <code class="w3-codespan">addMe</code> para agregar un elemento a la matriz <code class="w3-codespan">products</code>.</p>
+			<p>Agregue un botón y asígnele una directiva <code class="w3-codespan">ng-click</code> que ejecutará la función <code class="w3-codespan">addItem</code> cuando se haga clic en el botón.</p>
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+			<p>Ahora podemos agregar elementos a nuestro carrito de compras lista:</p>
+			<div class="w3-code notranslate">
+			<div class="htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			 </div>
+			<div class="jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+			</span>    <span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">"myShoppingList"</span>, []); <br><span class="jsnumbercolor" style="color:red">
+			</span>    app.<span class="jspropertycolor" style="color:black">controller</span>(<span class="jsstringcolor" style="color:brown">"myCtrl"</span>, <span class="jskeywordcolor" style="color:mediumblue">function</span>($scope) {<br>&nbsp;&nbsp;$scope.<span class="jspropertycolor" style="color:black">products</span> <span class="jsnumbercolor" style="color:red">
+			</span>    = [<span class="jsstringcolor" style="color:brown">"Milk"</span>, <span class="jsstringcolor" style="color:brown">"Bread"</span>, <span class="jsstringcolor" style="color:brown">"Cheese"</span>];<br><strong>&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    $scope.<span class="jspropertycolor" style="color:black">addItem</span> = <span class="jskeywordcolor" style="color:mediumblue">function</span> () {<br>&nbsp;&nbsp;&nbsp; $scope.<span class="jspropertycolor" style="color:black">products</span>.<span class="jspropertycolor" style="color:black">push</span>($scope.<span class="jspropertycolor" style="color:black">addMe</span>);<br><span class="jsnumbercolor" style="color:red">
+			</span>    &nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    }</strong> <br>});<br><span class="jsnumbercolor" style="color:red">
+			</span> </span></div>
+			<div class="htmlHigh">
+
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myShoppingList"</span> 
+				ng-controller<span class="attributevaluecolor" style="color:mediumblue">="myCtrl"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>ul<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;&nbsp; 
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>li<span class="attributecolor" style="color:red"> ng-repeat<span class="attributevaluecolor" style="color:mediumblue">="x in products"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="angularstatementcolor" style="color:red">{{x}}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/li<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/ul<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<strong>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> ng-model<span class="attributevaluecolor" style="color:mediumblue">="addMe"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; 
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>button<span class="attributecolor" style="color:red"> ng-click<span class="attributevaluecolor" style="color:mediumblue">="addItem()"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Add<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/button<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				</strong><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+			 </div>    
+				</div>
+			</div>
+			<hr>
+			<h3>Paso 3. Eliminar elementos:</h3>
+			<p>También queremos poder eliminar elementos de la lista de compras.</p>
+			<p>En el controlador, crea una función llamada <code class="w3-codespan">removeItem</code>, que toma como parámetro el índice del elemento que deseas eliminar.</p>
+			<p>En el HTML, crea un elemento <code class="w3-codespan">&lt;span&gt;</code> para cada elemento y dales una directiva <code class="w3-codespan">ng-click</code> que llame a la función <code class="w3-codespan">removeItem</code> con el <code class="w3-codespan">$index</code> actual.</p>
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+			<p>Ahora podemos eliminar elementos de nuestra lista de compras:</p>
+			<div class="w3-code notranslate">
+			<div class="htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			 </div>
+			<div class="jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+			</span>    <span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">"myShoppingList"</span>, []); <br><span class="jsnumbercolor" style="color:red">
+			</span>    app.<span class="jspropertycolor" style="color:black">controller</span>(<span class="jsstringcolor" style="color:brown">"myCtrl"</span>, <span class="jskeywordcolor" style="color:mediumblue">function</span>($scope) {<br>&nbsp;&nbsp;$scope.<span class="jspropertycolor" style="color:black">products</span> <span class="jsnumbercolor" style="color:red">
+			</span>    = [<span class="jsstringcolor" style="color:brown">"Milk"</span>, <span class="jsstringcolor" style="color:brown">"Bread"</span>, <span class="jsstringcolor" style="color:brown">"Cheese"</span>];<br>&nbsp;&nbsp;$scope.<span class="jspropertycolor" style="color:black">addItem</span> = <span class="jskeywordcolor" style="color:mediumblue">function</span> () {<br>&nbsp;&nbsp;&nbsp; $scope.<span class="jspropertycolor" style="color:black">products</span>.<span class="jspropertycolor" style="color:black">push</span>($scope.<span class="jspropertycolor" style="color:black">addMe</span>);<br><span class="jsnumbercolor" style="color:red">
+			</span>    &nbsp;&nbsp;}<br><strong>&nbsp; $scope.<span class="jspropertycolor" style="color:black">removeItem</span> = <span class="jskeywordcolor" style="color:mediumblue">function</span> (x) {<br>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    $scope.<span class="jspropertycolor" style="color:black">products</span>.<span class="jspropertycolor" style="color:black">splice</span>(x, <span class="jsnumbercolor" style="color:red">1</span>);<br>&nbsp; }</strong> <br>});<br><span class="jsnumbercolor" style="color:red">
+			</span> </span></div>
+			<div class="htmlHigh">
+
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myShoppingList"</span> 
+				ng-controller<span class="attributevaluecolor" style="color:mediumblue">="myCtrl"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>ul<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>li<span class="attributecolor" style="color:red"> ng-repeat<span class="attributevaluecolor" style="color:mediumblue">="x in products"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="angularstatementcolor" style="color:red">{{x}}</span><strong><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>span<span class="attributecolor" style="color:red"> ng-click<span class="attributevaluecolor" style="color:mediumblue">="removeItem($index)"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>&amp;times;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/span<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;&nbsp;&nbsp;</strong><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/li<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/ul<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> ng-model<span class="attributevaluecolor" style="color:mediumblue">="addMe"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>button<span class="attributecolor" style="color:red"> ng-click<span class="attributevaluecolor" style="color:mediumblue">="addItem()"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Add<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/button<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+			 </div>    
+				</div>
+			</div>
+			<hr>
+			<h3>Paso 4. Control de errores:</h3>
+			<p>La aplicación tiene algunos errores, como por ejemplo, si intentas agregar el mismo artículo dos veces, la aplicación se bloquea. Además, no debería permitirse agregar artículos vacíos.</p>
+			<p>Lo solucionaremos comprobando el valor antes de agregar nuevos artículos.</p>
+			<p>En el HTML, agregaremos un contenedor para mensajes de error y escribiremos un mensaje de error cuando alguien intente agregar un artículo existente.</p>
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+			<p>Una lista de compras, con la posibilidad de escribir mensajes de error:</p>
+			<div class="w3-code notranslate">
+			<div class="htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			 </div>
+			<div class="jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+			</span>    <span class="jskeywordcolor" style="color:mediumblue">var</span> app = angular.<span class="jspropertycolor" style="color:black">module</span>(<span class="jsstringcolor" style="color:brown">"myShoppingList"</span>, []); <br><span class="jsnumbercolor" style="color:red">
+			</span>    app.<span class="jspropertycolor" style="color:black">controller</span>(<span class="jsstringcolor" style="color:brown">"myCtrl"</span>, <span class="jskeywordcolor" style="color:mediumblue">function</span>($scope) {<br>&nbsp; $scope.<span class="jspropertycolor" style="color:black">products</span> <span class="jsnumbercolor" style="color:red">
+			</span>    = [<span class="jsstringcolor" style="color:brown">"Milk"</span>, <span class="jsstringcolor" style="color:brown">"Bread"</span>, <span class="jsstringcolor" style="color:brown">"Cheese"</span>];<br>&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    $scope.<span class="jspropertycolor" style="color:black">addItem</span> = <span class="jskeywordcolor" style="color:mediumblue">function</span> () {<br><strong>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    $scope.<span class="jspropertycolor" style="color:black">errortext</span> = <span class="jsstringcolor" style="color:brown">""</span>;<br>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    <span class="jskeywordcolor" style="color:mediumblue">if</span> (!$scope.<span class="jspropertycolor" style="color:black">addMe</span>) {<span class="jskeywordcolor" style="color:mediumblue">return</span>;}<br>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">if</span> ($scope.<span class="jspropertycolor" style="color:black">products</span>.<span class="jspropertycolor" style="color:black">indexOf</span>($scope.<span class="jspropertycolor" style="color:black">addMe</span>) <span class="jsnumbercolor" style="color:red">
+			</span>    == -<span class="jsnumbercolor" style="color:red">1</span>) {<br></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    $scope.<span class="jspropertycolor" style="color:black">products</span>.<span class="jspropertycolor" style="color:black">push</span>($scope.<span class="jspropertycolor" style="color:black">addMe</span>);<br><strong>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    } <span class="jskeywordcolor" style="color:mediumblue">else</span> {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    $scope.<span class="jspropertycolor" style="color:black">errortext</span> = <span class="jsstringcolor" style="color:brown">"The item is already 
+				in your shopping list."</span>;<br>&nbsp;&nbsp;&nbsp; }<br><span class="jsnumbercolor" style="color:red">
+			</span>    </strong>&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    }<br>&nbsp; $scope.<span class="jspropertycolor" style="color:black">removeItem</span> = <span class="jskeywordcolor" style="color:mediumblue">function</span> (x) {<br><strong>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    $scope.<span class="jspropertycolor" style="color:black">errortext</span> = <span class="jsstringcolor" style="color:brown">""</span>;<br></strong>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+			</span>    $scope.<span class="jspropertycolor" style="color:black">products</span>.<span class="jspropertycolor" style="color:black">splice</span>(x, <span class="jsnumbercolor" style="color:red">1</span>);<br>&nbsp; } <br>});<br><span class="jsnumbercolor" style="color:red">
+			</span> </span></div>
+			<div class="htmlHigh">
+
+			<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> ng-app<span class="attributevaluecolor" style="color:mediumblue">="myShoppingList"</span> 
+				ng-controller<span class="attributevaluecolor" style="color:mediumblue">="myCtrl"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>ul<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>li<span class="attributecolor" style="color:red"> ng-repeat<span class="attributevaluecolor" style="color:mediumblue">="x in products"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="angularstatementcolor" style="color:red">{{x}}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>span<span class="attributecolor" style="color:red"> ng-click<span class="attributevaluecolor" style="color:mediumblue">="removeItem($index)"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>&amp;times;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/span<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/li<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/ul<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+				&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> ng-model<span class="attributevaluecolor" style="color:mediumblue">="addMe"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp;&nbsp;<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>button<span class="attributecolor" style="color:red"> ng-click<span class="attributevaluecolor" style="color:mediumblue">="addItem()"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Add<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/button<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+			  &nbsp;
+				<strong><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="angularstatementcolor" style="color:red">{{errortext}}</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span></strong><br>
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+			 </div>    
+				</div>
+			</div>
+			<hr>
+			<h3>Paso 5. Diseño:</h3>
+			<p>La aplicación funciona, pero podría tener un mejor diseño. Usamos la hoja de estilo W3.CSS para darle estilo a nuestra aplicación.</p>
+			<p>Agregue la hoja de estilo W3.CSS e incluya las clases adecuadas en toda la aplicación; el resultado será el mismo que la lista de compras en la parte superior de esta página.</p>
+			<div class="w3-example">
+			<h3>Ejemplo</h3>
+			<p>Dale estilo a tu aplicación usando la hoja de estilo W3.CSS:</p>
+			<div class="w3-code notranslate">
+			<div class="htmlHigh">
+				<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>link<span class="attributecolor" style="color:red"> rel<span class="attributevaluecolor" style="color:mediumblue">="stylesheet"</span> href<span class="attributevaluecolor" style="color:mediumblue">="https://www.w3schools.com/w3css/4/w3.css"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+				</div>
+			</div>
+
+
+			<br/>
+			<br/>
+			<br/>
+		</div>
+		
+		
+		<footer style="
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    background-color: white;
+    left: 200px;
+		">
+			<p style="text-align: center;">Ésta misma página web está desarrollada con Notepad++ en AngularJS y sirve como ejemplo de aplicación desarrollada en AngularJS.</p>
+		</footer>
+	</body>
+
+
+</html>
